@@ -243,7 +243,7 @@ residual = u_t - self.alpha * u_xx - f   # deve ser ≈ 0 em todo Q_T
 
 ## Função de Perda
 
-$$\mathcal{L} = w_{\rm BC}\,\mathcal{L}_{\rm BC} + w_{\rm PDE}\,\mathcal{L}_{\rm PDE} + w_{\rm reg}\,\mathcal{L}_{\rm reg} + w_u\,\mathcal{L}_{u\text{-obs}} + w_f\,\mathcal{L}_{f\text{-obs}}$$
+$$\mathcal{L} = w_{\rm BC}\mathcal{L}_{\rm BC} + w_{\rm PDE}\mathcal{L}_{\rm PDE} + w_{\rm reg}\mathcal{L}_{\rm reg} + w_u\mathcal{L}_{u\text{-obs}} + w_f\mathcal{L}_{f\text{-obs}}$$
 
 | Componente | Expressão | Papel |
 |---|---|---|
