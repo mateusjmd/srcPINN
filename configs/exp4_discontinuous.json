@@ -1,0 +1,83 @@
+{
+  "experiment": {
+    "case": "example_4",
+    "domain": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "alpha": 1.0,
+    "noise_level": 0.0
+  },
+  "data": {
+    "N_test_x": 200,
+    "N_test_t": 200,
+    "N_train_x": 200,
+    "N_train_t": 200,
+    "N_bc": 1000,
+    "N_f_obs": 300,
+    "N_obs_ux": 60,
+    "N_obs_ut": 60
+  },
+  "model": {
+    "domain": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "alpha": 1.0,
+    "net_u": {
+      "layers": [
+        2,
+        64,
+        64,
+        64,
+        64,
+        1
+      ],
+      "activation": "tanh"
+    },
+    "net_f": {
+      "layers": [
+        2,
+        64,
+        64,
+        64,
+        64,
+        1
+      ],
+      "activation": "tanh"
+    }
+  },
+  "training": {
+    "n_steps": 12000,
+    "batch_size": 1000,
+    "log_interval": 500,
+    "plot_interval": 1000,
+    "checkpoint_interval": 2000,
+    "loss_weights": {
+      "bc": 100.0,
+      "pde": 10.0,
+      "reg": 1e-05,
+      "f_obs": 80.0,
+      "u_obs": 100.0
+    },
+    "optimizer": {
+      "type": "adam",
+      "lr": 0.001
+    },
+    "scheduler": {
+      "type": "step",
+      "step_size": 3000,
+      "gamma": 0.85
+    }
+  },
+  "output": {
+    "base_dir": "outputs",
+    "gif_fps": 5,
+    "remove_frames": false
+  },
+  "notes": "Descont\u00ednuo: menor regularizacao, maior peso em f_obs, rede mais profunda."
+}
