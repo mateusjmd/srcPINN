@@ -1,0 +1,56 @@
+{
+  "experiment": {
+    "case":        "example_5",
+    "domain":      [0, 1, 0, 1],
+    "alpha":       1.0,
+    "noise_level": 0.1
+  },
+  "data": {
+    "N_test_x":  200,
+    "N_test_t":  200,
+    "N_train_x": 150,
+    "N_train_t": 150,
+    "N_bc":      1000,
+    "N_f_obs":   200
+  },
+  "model": {
+    "domain": [0, 1, 0, 1],
+    "alpha":  1.0,
+    "net_u": {
+      "layers":     [2, 50, 50, 50, 50, 1],
+      "activation": "tanh"
+    },
+    "net_f": {
+      "layers":     [2, 50, 50, 50, 1],
+      "activation": "tanh"
+    }
+  },
+  "training": {
+    "n_steps":             8000,
+    "batch_size":          1000,
+    "log_interval":        500,
+    "plot_interval":       1000,
+    "checkpoint_interval": 2000,
+    "loss_weights": {
+      "bc":    100.0,
+      "pde":   10.0,
+      "reg":   0.001,
+      "f_obs": 30.0
+    },
+    "optimizer": {
+      "type": "adam",
+      "lr":   0.001
+    },
+    "scheduler": {
+      "type":      "step",
+      "step_size": 2000,
+      "gamma":     0.9
+    }
+  },
+  "output": {
+    "base_dir":      "outputs",
+    "gif_fps":       5,
+    "remove_frames": false
+  },
+  "notes": "Ruido 5%: maior regularizacao e menor peso em f_obs para robustez."
+}
